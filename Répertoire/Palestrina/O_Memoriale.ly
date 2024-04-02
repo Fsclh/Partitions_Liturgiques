@@ -4,13 +4,10 @@
   title = "O Memoriale"
   composer = "Palestrina"
   style = "Renaissance"
+  tagline = "Reproduction libre"
 }
 
-\paper  {
-  property-defaults.fonts.serif = "Arial"
-  property-defaults.fonts.sans = "Arial"
-  property-defaults.fonts.typewriter = "Arial"
-}
+\paper  { #(define fonts (make-pango-font-tree "Arial" "Arial" "Arial" (/ staff-height pt 20))) }
 
 global = {
   \key e \major
@@ -26,7 +23,7 @@ sopranoVoice = \relative c'' {
   fis4 fis4 eis4 fis4 gis1 fis2 % Presta meæe menti
   r4 a4[(a4)] b4 cis4 b4 a2 gis4(a4) a8(gis8) fis4 fis4 eis4 fis1 % de te vivere, te dulce sapere.
   \bar "||"
-  fis1 e1
+  fis1 fis1
 }
 verseSopranoVoice = \lyricmode {
   % Ajouter ici des paroles.
@@ -37,7 +34,7 @@ verseSopranoVoice = \lyricmode {
 }
 sopranoVoicePart = \new Staff \with {
   instrumentName = "Soprano"
-  midiInstrument = "choir oohs"
+  midiInstrument = "Voice Oohs"
 } { \sopranoVoice }
 \addlyrics { \verseSopranoVoice }
 
@@ -50,6 +47,7 @@ altoVoice = \relative c' {
   cis4 cis4 cis4 cis4 e1 dis2 % Presta meæe menti
   r4 fis4(fis4) fis4 a4 gis4 fis2 e2 a4, a8(b8) cis4 cis4 cis1 % de te vivere, te dulce sapere.
   \bar "||"
+  d1 cis1
 }
 verseAltoVoice = \lyricmode {
   % Ajouter ici des paroles.
@@ -60,7 +58,7 @@ verseAltoVoice = \lyricmode {
 }
 altoVoicePart = \new Staff \with {
   instrumentName = "Alto"
-  midiInstrument = "choir oohs"
+  midiInstrument = "Voice Oohs"
 } { \altoVoice }
 \addlyrics { \verseAltoVoice }
 
@@ -73,6 +71,7 @@ tenorVoice = \relative c' {
   a4 a4 gis4 a4 b1 b2 r4 % Presta meæe menti
   cis4(cis4) dis4 e4 e4 cis2 cis2 fis4, fis4 gis4 gis4 a1 % de te vivere, te dulce sapere.
   \bar "||"
+  b1 ais1
 }
 verseTenorVoice = \lyricmode {
   % Ajouter ici des paroles.
@@ -83,7 +82,7 @@ verseTenorVoice = \lyricmode {
 }
 tenorVoicePart = \new Staff \with {
   instrumentName = "Ténor"
-  midiInstrument = "choir oohs"
+  midiInstrument = "Voice Oohs"
 } { \clef "treble_8" \tenorVoice }
 \addlyrics { \verseTenorVoice }
 
@@ -92,10 +91,11 @@ bassVoice = \relative c {
   \dynamicUp
   % En avant la musique.
   fis2 fis4 fis4 fis2 e2 a2 a4 e4 fis4 fis4 cis2 % O Memoriale mortis Domini
-   % Panis vivus vitam prestans homini.
-   % Presta meæe menti
-   % de te vivere, te dulce sapere.
-
+  b2 e4 e4 e2 e4 e4 gis2(fis4) cis4 e2 d2 cis1 % Panis vivus vitam prestans homini.
+  fis4 fis4 cis4 fis4 e1 b2 % Presta meæe menti
+  r4 fis'4(fis4) b4 a4 e4 fis2 cis2 d4 d4 cis4 cis4 fis1 % de te vivere, te dulce sapere.
+  \bar "||"
+  b,1 fis1
 }
 verseBassVoice = \lyricmode {
   % Ajouter ici des paroles.
@@ -106,7 +106,7 @@ verseBassVoice = \lyricmode {
 }
 bassVoicePart = \new Staff \with {
   instrumentName = "Basse"
-  midiInstrument = "choir oohs"
+  midiInstrument = "Voice Oohs"
 } { \clef bass \bassVoice }
 \addlyrics { \verseBassVoice }
 
